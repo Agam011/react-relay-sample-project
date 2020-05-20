@@ -1,0 +1,1847 @@
+input AddVehicleOperationInput {
+  userId: String!
+  year: String!
+  make: String!
+  model: String!
+  submodel: String!
+  engine: String!
+  bodyType: String!
+  bodyDoors: String!
+  driveType: String!
+  aspirationname: String!
+  bedlength: String!
+  bedtypename: String!
+  bodynumdoors: String!
+  bodytypename: String!
+  brakeabsname: String!
+  brakesystemname: String!
+  cylinderheadtypename: String!
+  drivetypename: String!
+  enginedesignationname: String!
+  enginevinname: String!
+  engineversion: String!
+  frontbraketypename: String!
+  frontspringtypename: String!
+  fueldeliverysubtypename: String!
+  fueldeliverytypename: String!
+  fuelsystemcontroltypename: String!
+  fuelsystemdesignname: String!
+  fueltypename: String!
+  ignitionsystemtypename: String!
+  mfrbodycodename: String!
+  rearbraketypename: String!
+  rearspringtypename: String!
+  regionname: String!
+  steeringsystemname: String!
+  steeringtypename: String!
+  transmissioncontroltypename: String!
+  transmissionmfrcode: String!
+  transmissionmfrname: String!
+  transmissionnumspeeds: String!
+  transmissionrange: String!
+  transmissiontypename: String!
+  valvesperengine: String!
+  wheelbase: String!
+  skuid: String!
+  partnumber: String!
+  location: String!
+  clientMutationId: String
+}
+
+type AddVehicleOperationPayload {
+  userVehicle: vehicleRecordType
+  clientMutationId: String
+}
+
+"""
+The `BigDecimal` scalar type represents signed fractional values with arbitrary precision.
+"""
+scalar BigDecimal
+
+"""
+The `BigInt` scalar type represents non-fractional signed whole numeric values. BigInt can represent arbitrary big values.
+"""
+scalar BigInt
+
+"""CartEntry detail"""
+type CartEntry {
+  """sku_id"""
+  sku_id: String!
+
+  """quantity"""
+  quantity: Int!
+
+  """price"""
+  price: Float!
+
+  """price"""
+  title: String!
+
+  """price"""
+  imageUrl: String!
+
+  """core_deposit"""
+  core_deposit: Float!
+
+  """distributor_group"""
+  distributor_group: String!
+
+  """product_url"""
+  product_url: String!
+
+  """fitmentuid"""
+  fitmentuid: String!
+
+  """brand"""
+  brand: String!
+
+  """category"""
+  category: String!
+
+  """partType"""
+  partType: String!
+
+  """isFreight"""
+  isFreight: Boolean!
+
+  """shippingPrice"""
+  shippingPrice: String!
+
+  """shippingMethod"""
+  shippingMethod: String!
+
+  """shippingDays"""
+  shippingDays: String!
+
+  """primary"""
+  primary: String!
+
+  """vehicle"""
+  vehicle: VehicleType!
+}
+
+input CartOperationInput {
+  cart_id: String!
+  user_id: String!
+  sku_id: String!
+  quantity: String!
+  price: String!
+  operation: String!
+  title: String!
+  core_deposit: String!
+  imageUrl: String!
+  product_url: String!
+  distributor_group: String!
+  fitmentuid: String!
+  brand: String!
+  category: String!
+  partType: String!
+  isFreight: String!
+  shippingMethod: String!
+  shippingPrice: String!
+  shippingDays: String!
+  primary: String!
+  partnumber: String!
+  aspirationname: String!
+  bedlength: String!
+  bedtypename: String!
+  bodynumdoors: String!
+  bodytypename: String!
+  brakeabsname: String!
+  brakesystemname: String!
+  cylinderheadtypename: String!
+  drivetypename: String!
+  enginedesignationname: String!
+  engineversion: String!
+  enginevinname: String!
+  frontbraketypename: String!
+  frontspringtypename: String!
+  fueldeliverysubtypename: String!
+  fueldeliverytypename: String!
+  fuelsystemcontroltypename: String!
+  fuelsystemdesignname: String!
+  fueltypename: String!
+  ignitionsystemtypename: String!
+  makename: String!
+  mfrbodycodename: String!
+  modelname: String!
+  rearbraketypename: String!
+  rearspringtypename: String!
+  regionname: String!
+  steeringsystemname: String!
+  steeringtypename: String!
+  submodelname: String!
+  transmissioncontroltypename: String!
+  transmissionmfrcode: String!
+  transmissionmfrname: String!
+  transmissionnumspeeds: String!
+  transmissionrange: String!
+  transmissiontypename: String!
+  valvesperengine: String!
+  wheelbase: String!
+  yearid: String!
+  engine: String!
+  fitStatus: Boolean!
+  clientMutationId: String
+}
+
+type CartOperationPayload {
+  cart: CartType
+  clientMutationId: String
+}
+
+"""Cart detail"""
+type CartType implements Node {
+  """The ID of an object"""
+  id: ID!
+
+  """cart_id"""
+  cart_id: String!
+
+  """user_id"""
+  user_id: String!
+
+  """cart_total"""
+  cart_total: String!
+
+  """core_deposit_total"""
+  core_deposit_total: String!
+
+  """totalNumberOfItems"""
+  totalNumberOfItems: String!
+
+  """cart_entries"""
+  cart_entry: [CartEntry!]!
+}
+
+"""category Description"""
+type category {
+  """category"""
+  category: String!
+
+  """subcategoryList"""
+  subcategoryList: [item!]!
+}
+
+"""CategoryImages Description"""
+type CategoryImages {
+  largeImage: String!
+  smallImage: String!
+  mediumImage: String!
+  miniImage: String!
+}
+
+"""category Description"""
+type categoryMap {
+  """submodelID"""
+  submodelID: String!
+
+  """categorylist"""
+  categorylist: [category!]!
+}
+
+type CheckPointEvent {
+  eventNum: Int!
+  dateTime: String!
+  status: String!
+  location: String!
+  message: String!
+}
+
+"""City_states detail"""
+type City_states {
+  """city"""
+  city: String!
+
+  """state_abbreviation"""
+  state_abbreviation: String!
+
+  """state"""
+  state: String!
+
+  """mailable_city"""
+  mailable_city: Boolean!
+
+  """default_city"""
+  default_city: Boolean!
+}
+
+"""CitySuggestion detail"""
+type CitySuggestionInfo {
+  """City_states"""
+  City_states: [City_states!]!
+
+  """Zipcodes"""
+  Zipcodes: [Zipcodes!]!
+}
+
+"""CRM data in form of message coming from CRM service"""
+type crm implements Node {
+  """The ID of an object"""
+  id: ID!
+
+  """customerUUID"""
+  customerUUID: String!
+
+  """shipToGroupList"""
+  shipToGroupList: [ShipToGroupType!]!
+
+  """responseCode"""
+  responseCode: Int!
+
+  """responseText"""
+  responseText: String!
+}
+
+input crmOperationInput {
+  operation: String!
+  customerUUID: String!
+  shipToGroupUUID: String!
+  name: String!
+  address: String!
+  address2: String!
+  companyName: String!
+  phoneNumber: String!
+  altPhone: String!
+  city: String!
+  state: String!
+  zip: String!
+  country: String!
+  landmark: String!
+  addressType: Int!
+  emailId: String!
+  addedAsBillingAddress: Boolean!
+  usedAsBillingAddress: Boolean!
+  isDefault: Boolean!
+  primaryEmailId: String!
+  clientMutationId: String
+}
+
+type crmOperationPayload {
+  crm: crm
+  clientMutationId: String
+}
+
+"""facet list"""
+type FacetList {
+  responseList: [String!]!
+}
+
+"""feature category description"""
+type FeaturedCategoryList {
+  categoryList: [FeaturedCategoryResponse!]!
+}
+
+"""featured category details"""
+type FeaturedCategoryResponse {
+  catId: Int!
+  category: String!
+  featured: Boolean!
+  popularCategory: Boolean!
+  largeImage: String!
+  smallImage: String!
+  mediumImage: String!
+  miniImage: String!
+  subCategoryList: [Subcategory!]!
+}
+
+"""fitment description"""
+type fitmentcatalog {
+  status: Boolean!
+  inputError: String!
+  list: [itemData!]!
+}
+
+"""FitmentInfo detail"""
+type FitmentInfo {
+  """year"""
+  year: String!
+
+  """make"""
+  make: String!
+
+  """model"""
+  model: String!
+}
+
+"""FitmentInfo List"""
+type FitmentInfoType {
+  """Fitment_List"""
+  fitmentList: [FitmentInfo!]!
+}
+
+type Header {
+  status: Int!
+  message: String!
+}
+
+"""item holder"""
+type item {
+  """key"""
+  key: String!
+
+  """value"""
+  value: String!
+}
+
+"""itemData description """
+type itemData {
+  """aspirationname"""
+  aspirationname: String!
+
+  """bedlength"""
+  bedlength: String!
+
+  """bedtypename"""
+  bedtypename: String!
+
+  """bodynumdoors"""
+  bodynumdoors: String!
+
+  """bodytypename"""
+  bodytypename: String!
+
+  """brakeabsname"""
+  brakeabsname: String!
+
+  """brakesystemname"""
+  brakesystemname: String!
+
+  """cylinderheadtypename"""
+  cylinderheadtypename: String!
+
+  """drivetypename"""
+  drivetypename: String!
+
+  """enginedesignationname"""
+  enginedesignationname: String!
+
+  """enginevinname"""
+  enginevinname: String!
+
+  """engineversion"""
+  engineversion: String!
+
+  """frontbraketypename"""
+  frontbraketypename: String!
+
+  """frontspringtypename"""
+  frontspringtypename: String!
+
+  """fueldeliverysubtypename"""
+  fueldeliverysubtypename: String!
+
+  """fueldeliverytypename"""
+  fueldeliverytypename: String!
+
+  """fuelsystemcontroltypename"""
+  fuelsystemcontroltypename: String!
+
+  """fuelsystemdesignname"""
+  fuelsystemdesignname: String!
+
+  """fueltypename"""
+  fueltypename: String!
+
+  """ignitionsystemtypename"""
+  ignitionsystemtypename: String!
+
+  """mfrbodycodename"""
+  mfrbodycodename: String!
+
+  """rearbraketypename"""
+  rearbraketypename: String!
+
+  """rearspringtypename"""
+  rearspringtypename: String!
+
+  """regionname"""
+  regionname: String!
+
+  """steeringsystemname"""
+  steeringsystemname: String!
+
+  """steeringtypename"""
+  steeringtypename: String!
+
+  """transmissioncontroltypename"""
+  transmissioncontroltypename: String!
+
+  """transmissionmfrcode"""
+  transmissionmfrcode: String!
+
+  """transmissionmfrname"""
+  transmissionmfrname: String!
+
+  """transmissionnumspeeds"""
+  transmissionnumspeeds: String!
+
+  """transmissionrange"""
+  transmissionrange: String!
+
+  """transmissiontypename"""
+  transmissiontypename: String!
+
+  """valvesperengine"""
+  valvesperengine: String!
+
+  """wheelbase"""
+  wheelbase: String!
+}
+
+"""landingCategoryResponse description"""
+type landingCategoryResponse {
+  requestModel: requestModel!
+  categoryList: [String!]!
+}
+
+"""landingResponse description"""
+type landingQueryResponse {
+  responseList: [String!]!
+}
+
+"""
+The `Long` scalar type represents non-fractional signed whole numeric values.
+Long can represent values between -(2^63) and 2^63 - 1.
+"""
+scalar Long
+
+type Mutation {
+  cartOperation(input: CartOperationInput!): CartOperationPayload
+  crmOperation(input: crmOperationInput!): crmOperationPayload
+  walletOperation(input: walletOperationInput!): walletOperationPayload
+  addVehicleOperation(input: AddVehicleOperationInput!): AddVehicleOperationPayload
+  removeVehicleOperation(input: RemoveVehicleOperationInput!): RemoveVehicleOperationPayload
+  updateCurrentVehicleOperation(input: updateVehicleOperationInput!): updateVehicleOperationPayload
+  uuidOperation(input: UuidOperationInput!): UuidOperationPayload
+}
+
+"""An object with an ID"""
+interface Node {
+  """The id of the object."""
+  id: ID!
+}
+
+"""Order detail"""
+type OrderType {
+  """order_id"""
+  order_id: String!
+
+  """order_number"""
+  order_number: String!
+
+  """userName"""
+  userName: String!
+
+  """totalNumberOfItems"""
+  totalNumberOfItems: Int!
+
+  """orderDate"""
+  orderDate: String!
+
+  """productList"""
+  productList: [ProductType!]!
+
+  """shipToGroupList"""
+  shipToGroupList: [ShipToGroupType!]!
+
+  """billingAddress"""
+  billingAddress: ShipToGroupType!
+
+  """totalOrderAmount"""
+  totalOrderAmount: Float!
+
+  """salesTax"""
+  salesTax: Float!
+
+  """emailId"""
+  emailId: String!
+
+  """payment_uuid"""
+  payment_uuid: String!
+
+  """paymentGatewayResponseCode"""
+  paymentGatewayResponseCode: String!
+
+  """paymentGatewayResponseText"""
+  paymentGatewayResponseText: String!
+
+  """paymentTransactionStatus"""
+  paymentTransactionStatus: String!
+
+  """creditCardLastFourDigits"""
+  creditCardLastFourDigits: String!
+
+  """creditCardType"""
+  creditCardType: String!
+
+  """serviceResponseCode"""
+  serviceResponseCode: String!
+
+  """serviceResponseText"""
+  serviceResponseText: String!
+
+  """paymentTransactionId"""
+  paymentTransactionId: String!
+}
+
+"""Wallet detail"""
+type OuterCardType {
+  """wallet"""
+  wallet: Wallet!
+}
+
+"""Cart detail"""
+type OuterCartType {
+  """The ID of an object"""
+  id: ID!
+
+  """cart"""
+  cart: CartType!
+}
+
+"""CRM detail"""
+type OuterCrmType {
+  """crm"""
+  crm: crm!
+}
+
+"""Order detail"""
+type OuterOrderType {
+  """order"""
+  order: OrderType!
+}
+
+"""Vehicle detail"""
+type OuterVehicleType {
+  """The ID of an object"""
+  id: ID!
+
+  """userVehicle"""
+  userVehicle: vehicleRecordType!
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+}
+
+"""Cards"""
+type PaymentGroup {
+  """customerUUID"""
+  customerUUID: String!
+
+  """paymentUUID"""
+  paymentUUID: String!
+
+  """lastFourDigitOfCard"""
+  lastFourDigitOfCard: String!
+
+  """cardType"""
+  cardType: String!
+
+  """expiryDateMonth"""
+  expiryDateMonth: String!
+
+  """expiryDateYear"""
+  expiryDateYear: String!
+
+  """cardFirstName"""
+  cardFirstName: String!
+
+  """cardLastName"""
+  cardLastName: String!
+
+  """billingAddressUUID"""
+  billingAddressUUID: String!
+
+  """isDefault"""
+  isDefault: String!
+}
+
+"""Paypal order"""
+type PaypalOrderResponseType {
+  """order_id"""
+  order_id: String!
+
+  """order_number"""
+  order_number: String!
+
+  """userName"""
+  userName: String!
+
+  """totalNumberOfItems"""
+  totalNumberOfItems: Int!
+
+  """orderDate"""
+  orderDate: String!
+
+  """totalOrderAmount"""
+  totalOrderAmount: Float!
+
+  """salesTax"""
+  salesTax: Float!
+
+  """emailId"""
+  emailId: String!
+
+  """paymentId"""
+  paymentId: String!
+
+  """paymentGatewayResponseCode"""
+  paymentGatewayResponseCode: String!
+
+  """paymentGatewayResponseText"""
+  paymentGatewayResponseText: String!
+
+  """paymentTransactionStatus"""
+  paymentTransactionStatus: String!
+}
+
+"""Paypal order"""
+type PlacePaypalOrderType {
+  """PaypalOrder"""
+  order: PaypalOrderResponseType!
+}
+
+"""popular category and subcategory"""
+type PopularCategoryList {
+  categoryList: [FeaturedCategoryResponse!]!
+}
+
+"""Product details"""
+type ProductType {
+  """skuId"""
+  skuId: String!
+
+  """image"""
+  image: String!
+
+  """price"""
+  price: Float!
+
+  """quantity"""
+  quantity: Int!
+
+  """title"""
+  title: String!
+}
+
+"""productTypeResponse description"""
+type productTypeResponse {
+  requestModel: requestModel!
+  responseList: [responseList!]!
+}
+
+"""productTypeResponseHome description"""
+type productTypeResponseHome {
+  requestModel: requestModelHome!
+  responseList: [responseList!]!
+}
+
+"""ProductType SkuInfoNode description"""
+type ProductTypeSkuInfoNode implements Node {
+  """The ID of an object"""
+  id: ID!
+
+  """count"""
+  count: Long!
+  sku(before: String, after: String, first: Int, last: Int): SkuConnection
+}
+
+type Query {
+  store: Store!
+}
+
+input RemoveVehicleOperationInput {
+  userId: String!
+  vehicleId: String!
+  skuid: String!
+  clientMutationId: String
+}
+
+type RemoveVehicleOperationPayload {
+  userVehicle: vehicleRecordType
+  clientMutationId: String
+}
+
+"""requestModel description"""
+type requestModel {
+  year: String
+  make: String
+  model: String
+  subCategory: String!
+  productType: String!
+}
+
+"""requestModelHome description"""
+type requestModelHome {
+  year: String!
+  make: String!
+  model: String!
+  subCategory: String!
+}
+
+"""responseList description"""
+type responseList {
+  productType: String!
+  desktopImageUrl: String!
+  mobileImageUrl: String!
+}
+
+"""sale tax detail"""
+type saletax {
+  """totalPrice"""
+  totalPrice: String!
+
+  """tax"""
+  tax: String!
+
+  """State"""
+  State: String!
+
+  """ZipCode"""
+  ZipCode: String!
+
+  """TaxRegionName"""
+  TaxRegionName: String!
+
+  """TaxRegionCode"""
+  TaxRegionCode: String!
+
+  """CombinedRate"""
+  CombinedRate: String!
+
+  """StateRate"""
+  StateRate: String!
+
+  """CountyRate"""
+  CountyRate: String!
+
+  """CityRate"""
+  CityRate: String!
+
+  """SpecialRate"""
+  SpecialRate: String!
+}
+
+input saletaxCartEntriesType {
+  sku_id: String!
+  quantity: Int!
+  price: Float!
+}
+
+"""Sale Tax detail"""
+type SaletaxType {
+  """saletax"""
+  saletax: saletax!
+}
+
+input shippableElemType {
+  skuId: String!
+  quantity: Int!
+  shippingMethod: String!
+}
+
+type ShippingResponseForSku {
+  skuHeader: Header!
+  skuID: String!
+  distributor: String!
+  shippingPrice: String!
+  delivery: String!
+}
+
+type ShippingResponseForSkuList {
+  responseHeader: Header!
+  shippingChargeList: [ShippingResponseForSku!]!
+}
+
+type ShippingZipcode {
+  responseHeader: Header!
+  city: String
+  state: String
+  zipcode: String
+}
+
+"""Ship to group details"""
+type ShipToGroupType {
+  """customerUUID"""
+  customerUUID: String!
+
+  """shipToGroupUUID"""
+  shipToGroupUUID: String!
+
+  """name"""
+  name: String!
+
+  """address"""
+  address: String!
+
+  """address"""
+  address2: String!
+
+  """companyName"""
+  companyName: String!
+
+  """phoneNumber"""
+  phoneNumber: String!
+
+  """altPhone"""
+  altPhone: String!
+
+  """city"""
+  city: String!
+
+  """state"""
+  state: String!
+
+  """zip"""
+  zip: String!
+
+  """country"""
+  country: String!
+
+  """landmark"""
+  landmark: String!
+
+  """addressType"""
+  addressType: Int!
+
+  """emailId"""
+  emailId: String!
+
+  """addedAsBillingAddress"""
+  addedAsBillingAddress: Boolean!
+
+  """usedAsBillingAddress"""
+  usedAsBillingAddress: Boolean!
+
+  """isDefault"""
+  isDefault: Boolean!
+}
+
+"""sku detail"""
+type sku {
+  """PartNumber"""
+  PartNumber: String!
+
+  """Description"""
+  Description: String!
+
+  """price"""
+  price: String!
+
+  """position"""
+  position: String!
+
+  """Availability"""
+  Availability: String!
+
+  """brand"""
+  brand: String!
+
+  """ImageURL"""
+  ImageURL: String!
+
+  """imageList"""
+  imageList: [String!]!
+
+  """DimensionUOM"""
+  DimensionUOM: String!
+
+  """WeightUOM"""
+  WeightUOM: String!
+
+  """Length"""
+  Length: String!
+
+  """Height"""
+  Height: String!
+
+  """ItemLevelGTIN"""
+  ItemLevelGTIN: String!
+
+  """Width"""
+  Width: String!
+
+  """Weight"""
+  Weight: String!
+
+  """Category"""
+  Category: String!
+
+  """Subcategory"""
+  Subcategory: String!
+
+  """Title"""
+  Title: String!
+
+  """core_deposit"""
+  core_deposit: String!
+
+  """product_url"""
+  product_url: String!
+
+  """condition"""
+  condition: String!
+
+  """skuid"""
+  skuid: String!
+
+  """primary"""
+  primary: String!
+
+  """distributor_group"""
+  distributor_group: String!
+
+  """HazardousMaterialCode"""
+  HazardousMaterialCode: String!
+
+  """AvailableQuantity"""
+  AvailableQuantity: String!
+
+  """MinimumOrderQunatity"""
+  MinimumOrderQunatity: String!
+
+  """QuantityPerApplication"""
+  QuantityPerApplication: String!
+
+  """QuantityofEaches"""
+  QuantityofEaches: String!
+
+  """ProductAttribute"""
+  ProductAttribute: String!
+
+  """isFreight"""
+  isFreight: String!
+
+  """shippingCost"""
+  shippingCost: String!
+
+  """part_type"""
+  part_type: String!
+
+  """shipping_method"""
+  shipping_method: String!
+
+  """partinterchange"""
+  partinterchange: [String!]!
+
+  """packageList"""
+  packageList: [String!]!
+
+  """kitParts"""
+  kitParts: [String!]!
+
+  """warning"""
+  warning: String!
+
+  """parentKitId"""
+  parentKitId: [String!]!
+}
+
+"""Sku details"""
+type Sku implements Node {
+  """The ID of an object"""
+  id: ID!
+  rawId: String!
+
+  """PartNumber"""
+  PartNumber: String!
+
+  """Title"""
+  Title: String!
+
+  """Availability"""
+  Availability: String!
+
+  """Category"""
+  Category: String!
+
+  """Subcategory"""
+  Subcategory: String!
+
+  """ImageURL"""
+  ImageURL: String!
+
+  """Description"""
+  Description: String!
+
+  """DimensionUOM"""
+  DimensionUOM: String!
+
+  """WeightUOM"""
+  WeightUOM: String!
+
+  """Length"""
+  Length: String!
+
+  """Height"""
+  Height: String!
+
+  """ItemLevelGTIN"""
+  ItemLevelGTIN: String!
+
+  """Width"""
+  Width: String!
+
+  """Weight"""
+  Weight: String!
+
+  """imageList"""
+  imageList: [String!]!
+
+  """price"""
+  price: String!
+
+  """core_deposit"""
+  core_deposit: String!
+
+  """product_url"""
+  product_url: String!
+
+  """skuid"""
+  skuid: String!
+
+  """position"""
+  position: String!
+
+  """condition"""
+  condition: String!
+
+  """brand"""
+  brand: String!
+
+  """primary"""
+  primary: String!
+
+  """distributor_group"""
+  distributor_group: String!
+
+  """AvailableQuantity"""
+  AvailableQuantity: String!
+
+  """MinimumOrderQunatity"""
+  MinimumOrderQunatity: String!
+
+  """QuantityPerApplication"""
+  QuantityPerApplication: String!
+
+  """QuantityofEaches"""
+  QuantityofEaches: String!
+
+  """ProductAttribute"""
+  ProductAttribute: String!
+
+  """isFreight"""
+  isFreight: String!
+
+  """shippingCost"""
+  shippingCost: String!
+
+  """part_type"""
+  part_type: String!
+
+  """shipping_method"""
+  shipping_method: String!
+
+  """certification"""
+  certification: String!
+
+  """partinterchange"""
+  partinterchange: [String!]!
+
+  """packageList"""
+  packageList: [String!]!
+
+  """kitParts"""
+  kitParts: [String!]!
+
+  """parentKitId"""
+  parentKitId: [String!]!
+}
+
+"""A connection to a list of items."""
+type SkuConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [SkuEdge]
+}
+
+"""An edge in a connection."""
+type SkuEdge {
+  """The item at the end of the edge."""
+  node: Sku
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+"""SkuInfoNode description"""
+type SkuInfoNode implements Node {
+  """The ID of an object"""
+  id: ID!
+
+  """count"""
+  count: Long!
+  skus(before: String, after: String, first: Int, last: Int): SkuConnection
+}
+
+"""SkuInfoNodeNew description"""
+type SkuInfoNodeNew implements Node {
+  """The ID of an object"""
+  id: ID!
+
+  """count"""
+  count: Long!
+  skus(before: String, after: String, first: Int, last: Int): SkuConnection
+}
+
+type Store {
+  idQuery: Float
+  getBrand(searchString: String!, VIN: String!, year: String!, make: String!, model: String!, category: String!, subcategory: String!, partType: String!, brand: String!, material: String!, color: String!, productPackage: String!, size: String!, moldType: String!, surfaceFinish: String!, style: String!, insulationFoam: String!, certification: String!, price: String!, productType: String!, position: String!, submodel: String!, engine: String!): FacetList!
+  getColor(searchString: String!, VIN: String!, year: String!, make: String!, model: String!, category: String!, subcategory: String!, partType: String!, brand: String!, material: String!, color: String!, productPackage: String!, size: String!, moldType: String!, surfaceFinish: String!, style: String!, insulationFoam: String!, certification: String!, price: String!, productType: String!, position: String!, submodel: String!, engine: String!): FacetList!
+  getMaterial(searchString: String!, VIN: String!, year: String!, make: String!, model: String!, category: String!, subcategory: String!, partType: String!, brand: String!, material: String!, color: String!, productPackage: String!, size: String!, moldType: String!, surfaceFinish: String!, style: String!, insulationFoam: String!, certification: String!, price: String!, productType: String!, position: String!, submodel: String!, engine: String!): FacetList!
+  getCertification(searchString: String!, VIN: String!, year: String!, make: String!, model: String!, category: String!, subcategory: String!, partType: String!, brand: String!, material: String!, color: String!, productPackage: String!, size: String!, moldType: String!, surfaceFinish: String!, style: String!, insulationFoam: String!, certification: String!, price: String!, productType: String!, position: String!, submodel: String!, engine: String!): FacetList!
+  getInsulationFoam(searchString: String!, VIN: String!, year: String!, make: String!, model: String!, category: String!, subcategory: String!, partType: String!, brand: String!, material: String!, color: String!, productPackage: String!, size: String!, moldType: String!, surfaceFinish: String!, style: String!, insulationFoam: String!, certification: String!, price: String!, productType: String!, position: String!, submodel: String!, engine: String!): FacetList!
+  getMoldType(searchString: String!, VIN: String!, year: String!, make: String!, model: String!, category: String!, subcategory: String!, partType: String!, brand: String!, material: String!, color: String!, productPackage: String!, size: String!, moldType: String!, surfaceFinish: String!, style: String!, insulationFoam: String!, certification: String!, price: String!, productType: String!, position: String!, submodel: String!, engine: String!): FacetList!
+  getProductPackage(searchString: String!, VIN: String!, year: String!, make: String!, model: String!, category: String!, subcategory: String!, partType: String!, brand: String!, material: String!, color: String!, productPackage: String!, size: String!, moldType: String!, surfaceFinish: String!, style: String!, insulationFoam: String!, certification: String!, price: String!, productType: String!, position: String!, submodel: String!, engine: String!): FacetList!
+  getPrice(searchString: String!, VIN: String!, year: String!, make: String!, model: String!, category: String!, subcategory: String!, partType: String!, brand: String!, material: String!, color: String!, productPackage: String!, size: String!, moldType: String!, surfaceFinish: String!, style: String!, insulationFoam: String!, certification: String!, price: String!, productType: String!, position: String!, submodel: String!, engine: String!): FacetList!
+  getSize(searchString: String!, VIN: String!, year: String!, make: String!, model: String!, category: String!, subcategory: String!, partType: String!, brand: String!, material: String!, color: String!, productPackage: String!, size: String!, moldType: String!, surfaceFinish: String!, style: String!, insulationFoam: String!, certification: String!, price: String!, productType: String!, position: String!, submodel: String!, engine: String!): FacetList!
+  getStyle(searchString: String!, VIN: String!, year: String!, make: String!, model: String!, category: String!, subcategory: String!, partType: String!, brand: String!, material: String!, color: String!, productPackage: String!, size: String!, moldType: String!, surfaceFinish: String!, style: String!, insulationFoam: String!, certification: String!, price: String!, productType: String!, position: String!, submodel: String!, engine: String!): FacetList!
+  getSurfaceFinish(searchString: String!, VIN: String!, year: String!, make: String!, model: String!, category: String!, subcategory: String!, partType: String!, brand: String!, material: String!, color: String!, productPackage: String!, size: String!, moldType: String!, surfaceFinish: String!, style: String!, insulationFoam: String!, certification: String!, price: String!, productType: String!, position: String!, submodel: String!, engine: String!): FacetList!
+  getProductType(searchString: String!, VIN: String!, year: String!, make: String!, model: String!, category: String!, subcategory: String!, partType: String!, brand: String!, material: String!, color: String!, productPackage: String!, size: String!, moldType: String!, surfaceFinish: String!, style: String!, insulationFoam: String!, certification: String!, price: String!, productType: String!, position: String!, submodel: String!, engine: String!): FacetList!
+  getPosition(searchString: String!, VIN: String!, year: String!, make: String!, model: String!, category: String!, subcategory: String!, partType: String!, brand: String!, material: String!, color: String!, productPackage: String!, size: String!, moldType: String!, surfaceFinish: String!, style: String!, insulationFoam: String!, certification: String!, price: String!, productType: String!, position: String!, submodel: String!, engine: String!): FacetList!
+  featuredCategory: FeaturedCategoryList!
+  getAllCategory: FeaturedCategoryList!
+  getPopularCategory: PopularCategoryList!
+  popularSubcategory: subcategorydetail!
+  getAllSubcategory: subcategorydetail!
+  getSubcategoryList(categoryName: String!): subcategorywithCategoryImages!
+  subcategoryOrProducttype(input: String!): subcategoryOrProducttype!
+  getvehicleDetail(userId: String!): OuterVehicleType!
+  getCitySuggestion(city_Zipcode: String!): CitySuggestionInfo!
+  trackOrder(trackingId: String!): TrackOrderDetails!
+  lkqInvoice(clientBatchNumber: String!, mD5Hash: String!, numberOfInvoices: String!, zippedInvoices: String!, env: String!): String!
+  UUID(emailID: String!): UserIdResponseType!
+  partFitFinder(partNumber: String!): FitmentInfoType!
+  skuListForVIN(VIN: String!): categoryMap!
+  doesSkuFit(year: String!, make: String!, model: String!, submodel: String!, engine: String!, partnumber: String!, brand: String!, productType: String!, position: String!, bodyType: String!, bodyDoors: String!, driveType: String!): Boolean!
+  doesVehicleFit(year: String!, make: String!, model: String!, submodel: String!, engine: String!, partnumber: String!, brand: String!, productType: String!, position: String!, bodyType: String!, bodyDoors: String!, driveType: String!): Boolean!
+  searchFilter(searchString: String!, price: String!, brand: String!, pageNo: Int!, rows: Int!, year: String!, make: String!, model: String!, submodel: String!, engine: String!, material: String!, color: String!, size: String!, productPackage: String!, moldType: String!, surfaceFinish: String!, style: String!, insulationFoam: String!, certification: String!, productType: String!, position: String!): SkuInfoNode
+  searchByPartNew(searchString: String!, pageNo: Int!, rows: Int!): SkuInfoNode
+  getShippingDetailsForZipcode(shippableElem: [shippableElemType!]!): ShippingResponseForSkuList!
+  getShippingDetailsForIP(ipAddress: String!, shippingMethod: String!, shippableElem: [shippableElemType!]!): ShippingResponseForSkuList!
+  getZipcodeForShipping(ipAddress: String!): ShippingZipcode!
+  outerCart(cart_id: String!, user_id: String!, sku_id: String!, quantity: String!, price: String!, operation: String!, title: String!, imageUrl: String!, core_deposit: String!, product_url: String!, fitmentuid: String!, distributor_group: String!, brand: String!, category: String!, partType: String!, isFreight: String!, shippingMethod: String!, shippingPrice: String!, shippingDays: String!, primary: String!, partnumber: String!, aspirationname: String!, bedlength: String!, bedtypename: String!, bodynumdoors: String!, bodytypename: String!, brakeabsname: String!, brakesystemname: String!, cylinderheadtypename: String!, drivetypename: String!, enginedesignationname: String!, engineversion: String!, enginevinname: String!, frontbraketypename: String!, frontspringtypename: String!, fueldeliverysubtypename: String!, fueldeliverytypename: String!, fuelsystemcontroltypename: String!, fuelsystemdesignname: String!, fueltypename: String!, ignitionsystemtypename: String!, makename: String!, mfrbodycodename: String!, modelname: String!, rearbraketypename: String!, rearspringtypename: String!, regionname: String!, steeringsystemname: String!, steeringtypename: String!, submodelname: String!, transmissioncontroltypename: String!, transmissionmfrcode: String!, transmissionmfrname: String!, transmissionnumspeeds: String!, transmissionrange: String!, transmissiontypename: String!, valvesperengine: String!, wheelbase: String!, yearid: String!, engine: String!, fitStatus: Boolean!): OuterCartType!
+  saletax(cart: [saletaxCartEntriesType!]!, zipcode: String!): SaletaxType!
+  validateZipcode(zipcode: String!): String!
+  orderSuccessEmail(mailto: String!, mailFrom: String!, mailcc: String!, mailbcc: String!, subject: String!, customerName: String!, orderID: String!, productString: [String!]!, subTotal: String!, saleTax: String!, total: String!, phoneNumber: String!, address: String!, city: String!, state: String!, zipcode: String!, country: String!): String!
+  orderFailureEmail(mailto: String!, mailFrom: String!, mailcc: String!, mailbcc: String!, subject: String!, customerName: String!, orderErrorMessage: String!, orderID: String!, productString: [String!]!, subTotal: String!, saleTax: String!, total: String!, phoneNumber: String!, address: String!, city: String!, state: String!, zipcode: String!, country: String!): String!
+  contactUsEmail(mailto: String!, mailFrom: String!, mailcc: String!, mailbcc: String!, subject: String!, customerName: String!): String!
+  helpdeskSupportEmail(mailto: String!, mailFrom: String!, mailcc: String!, mailbcc: String!, subject: String!, customerName: String!, content: String!, userEmail: String!, phone: String!): String!
+  outerOrder(customer_id: String!, cart_id: String!, payment_id: String!, shipToGroupUUID: String!, billingAddressUUID: String!, userName: String!, sales_tax: Float!, total_payable: Float!, cvv: String!, isDefaultMethod: Boolean!, emailId: String!, user_ip: String!, session_id: String!, shipping_cost: Float!): OuterOrderType!
+  placePaypalOrder(customer_id: String!, cart_id: String!, payment_id: String!, shipToGroupUUID: String!, billingAddressUUID: String!, userName: String!, sales_tax: Float!, total_payable: Float!, emailId: String!, user_ip: String!, session_id: String!, shipping_cost: Float!): PlacePaypalOrderType!
+  OuterCrm(customerUUID: String!): OuterCrmType!
+  OuterCrmEmailID(primaryEmailId: String!): OuterCrmType!
+  makes(year: String!): [item!]!
+  model(year: String!, make: String!): [item!]!
+  submodel(year: String!, make: String!, model: String!): [item!]!
+  engine(year: String!, make: String!, model: String!, submodel: String!): [item!]!
+  landingEngines(year: String!, make: String!, model: String!, submodel: String!, subcategory: String!, partnumber: String!, productType: String!): landingQueryResponse!
+  landingSubmodels(year: String!, make: String!, model: String!, subcategory: String!, partnumber: String!, productType: String!): landingQueryResponse!
+  landingYearsHome(make: String!, model: String!): landingQueryResponse!
+  landingModelHome(make: String!): landingQueryResponse!
+  landingMakesHome: landingQueryResponse!
+  categoryfilter(year: String!, make: String!, model: String!, submodel: String!, engine: String!): categoryMap!
+  subcategoryfilter(year: String!, make: String!, model: String!, submodel: String!, engine: String!, category: String!): category!
+  skuListNew(year: String!, make: String!, model: String!, submodel: String!, engine: String!, partType: String!, category: String!, subcategory: String!, price: String!, pageNo: Int!, rows: Int!, brand: String!, material: String!, color: String!, size: String!, productPackage: String!, moldType: String!, surfaceFinish: String!, style: String!, insulationFoam: String!, certification: String!, productType: String!, position: String!): SkuInfoNode
+  skuList(year: String!, make: String!, model: String!, submodel: String!, engine: String!, price: String!, pageNo: Int!, rows: Int!, brand: String!, material: String!, color: String!, size: String!, productPackage: String!, moldType: String!, surfaceFinish: String!, style: String!, insulationFoam: String!, certification: String!, productType: String!, position: String!): SkuInfoNodeNew
+  sku(sku_id: String!, priceStart: String!, priceEnd: String!): sku!
+  streetAddressValidation(address1: String!, address2: String!, street: String!, city: String!, state: String!, country: String!, zipcode: String!): StreetValidation!
+  suggestions(prefix: String!, customerUUID: String!): Suggestions!
+  outerWallet(walletCustomerUUID: String!): OuterCardType!
+  outerWalletEmailId(walletEmailId: String!): OuterCardType!
+  categorySkuList(year: String!, make: String!, model: String!, category: String!, subcategory: String!, partType: String!, price: String!, brand: String!, pageNo: Int!, rows: Int!, material: String!, color: String!, size: String!, productPackage: String!, moldType: String!, surfaceFinish: String!, style: String!, insulationFoam: String!, certification: String!, productType: String!, position: String!): SkuInfoNode
+  subCategorySkuList(subcategory: String!, pageNo: Int!, rows: Int!): SubCategorySkuInfoNode
+  productTypeSkuList(year: String!, make: String!, model: String!, subcategory: String!, partType: String!, price: String!, brand: String!, pageNo: Int!, rows: Int!, material: String!, color: String!, size: String!, productPackage: String!, moldType: String!, surfaceFinish: String!, style: String!, insulationFoam: String!, certification: String!, productType: String!, position: String!): ProductTypeSkuInfoNode
+  productTypeResponse(year: String!, make: String!, model: String!, subcategory: String!, productType: String!): productTypeResponse!
+  productTypeHomeResponse(year: String!, make: String!, model: String!, subcategory: String!): productTypeResponseHome!
+  landingCategoryResponse(year: String!, make: String!, model: String!, subcategory: String!): landingCategoryResponse!
+  landingMakes(year: String!, subcategory: String!, productType: String!): landingQueryResponse!
+  landingModels(year: String!, make: String!, subcategory: String!, productType: String!): landingQueryResponse!
+  landingYears(make: String!, model: String!, subcategory: String!, partnumber: String!, productType: String!): landingQueryResponse!
+  landingSubModelHome(year: String!, make: String!, model: String!, subcategory: String!, productType: String!): landingQueryResponse!
+  landingEngineHome(year: String!, make: String!, model: String!, submodel: String!, subcategory: String!, productType: String!): landingQueryResponse!
+  landingSubCategory(year: String!, make: String!, model: String!, productType: String!): landingQueryResponse!
+  landingSubCategoryHome(year: String!, make: String!, model: String!): productTypeResponseHome!
+  FitmentStatus(partnumber: String!, aspirationname: String!, bedlength: String!, bedtypename: String!, bodynumdoors: String!, bodytypename: String!, brakeabsname: String!, brakesystemname: String!, cylinderheadtypename: String!, drivetypename: String!, enginedesignationname: String!, engineversion: String!, enginevinname: String!, frontbraketypename: String!, frontspringtypename: String!, fueldeliverysubtypename: String!, fueldeliverytypename: String!, fuelsystemcontroltypename: String!, fuelsystemdesignname: String!, fueltypename: String!, ignitionsystemtypename: String!, makename: String!, mfrbodycodename: String!, modelname: String!, rearbraketypename: String!, rearspringtypename: String!, regionname: String!, steeringsystemname: String!, steeringtypename: String!, submodelname: String!, transmissioncontroltypename: String!, transmissionmfrcode: String!, transmissionmfrname: String!, transmissionnumspeeds: String!, transmissionrange: String!, transmissiontypename: String!, valvesperengine: String!, wheelbase: String!, yearid: String!, engine: String!): fitmentcatalog!
+  partinterchangeList(skuids: String!): SkuInfoNode
+  vinSkuList(VIN: String!, price: String!, brand: String!, pageNo: Int!, rows: Int!, material: String!, color: String!, size: String!, productPackage: String!, moldType: String!, surfaceFinish: String!, style: String!, insulationFoam: String!, certification: String!, productType: String!, position: String!): SkuInfoNode
+
+  """Fetches an object given its ID"""
+  node(
+    """The ID of an object"""
+    id: ID!
+  ): Node
+
+  """Fetches objects given their IDs"""
+  nodes(
+    """The IDs of objects"""
+    ids: [ID!]!
+  ): [Node]!
+}
+
+"""Street Address"""
+type StreetAddress {
+  """urbanization"""
+  urbanization: String!
+
+  """primaryNumber"""
+  primaryNumber: String!
+
+  """streetName"""
+  streetName: String!
+
+  """streetPredirection"""
+  streetPredirection: String!
+
+  """streetPostdirection"""
+  streetPostdirection: String!
+
+  """streetSuffix"""
+  streetSuffix: String!
+
+  """secondaryNumber"""
+  secondaryNumber: String!
+
+  """secondaryDesignator"""
+  secondaryDesignator: String!
+
+  """extraSecondaryNumber"""
+  extraSecondaryNumber: String!
+
+  """extraSecondaryDesignator"""
+  extraSecondaryDesignator: String!
+
+  """pmbDesignator"""
+  pmbDesignator: String!
+
+  """pmbNumber"""
+  pmbNumber: String!
+
+  """cityName"""
+  cityName: String!
+
+  """defaultCityName"""
+  defaultCityName: String!
+
+  """state"""
+  state: String!
+
+  """zipCode"""
+  zipCode: String!
+
+  """plus4Code"""
+  plus4Code: String!
+
+  """deliveryPoint"""
+  deliveryPoint: String!
+
+  """deliveryPointCheckDigit"""
+  deliveryPointCheckDigit: String!
+}
+
+"""Validated Street List"""
+type StreetValidation {
+  """false"""
+  isValid: Boolean!
+
+  """message"""
+  message: String!
+
+  """streetAddresses"""
+  streetAddresses: [StreetAddress!]!
+}
+
+"""category Description"""
+type Subcategory {
+  """subcategoryId"""
+  subcategoryId: Int!
+
+  """SubCategory"""
+  subcategory: String!
+
+  """featured"""
+  subpopular: Boolean!
+
+  """Large"""
+  largeImage: String!
+
+  """smallImage"""
+  smallImage: String!
+
+  """mediumImage"""
+  mediumImage: String!
+
+  """miniImage"""
+  miniImage: String!
+}
+
+"""subcategory description"""
+type subcategorydetail {
+  """subcatList"""
+  subCategoryList: [Subcategory!]!
+}
+
+"""subcategory or producttype description"""
+type subcategoryOrProducttype {
+  attribute: String!
+}
+
+"""Subcategory SkuInfoNode description"""
+type SubCategorySkuInfoNode implements Node {
+  """The ID of an object"""
+  id: ID!
+
+  """count"""
+  count: Long!
+  sku(before: String, after: String, first: Int, last: Int): SkuConnection
+}
+
+"""subCategory with category Images description"""
+type subcategorywithCategoryImages {
+  subCategoryList: [Subcategory!]!
+  categoryImages: CategoryImages!
+}
+
+"""Suggested Address"""
+type SuggestedAddress {
+  """text"""
+  text: String!
+
+  """street_line"""
+  street_line: String!
+
+  """city"""
+  city: String!
+
+  """state"""
+  state: String!
+}
+
+"""Suggestions"""
+type Suggestions {
+  """suggestions"""
+  suggestions: [SuggestedAddress!]!
+}
+
+type TrackOrderDetails {
+  trackingNum: String!
+  courierName: String!
+  expectedDelivery: String!
+  status: String!
+  shipmentEvents: [CheckPointEvent!]!
+  error: String!
+}
+
+input updateVehicleOperationInput {
+  userId: String!
+  vehicleId: String!
+  skuid: String!
+  clientMutationId: String
+}
+
+type updateVehicleOperationPayload {
+  userVehicle: vehicleRecordType
+  clientMutationId: String
+}
+
+""" UuidResponse detail"""
+type UserIdResponseType {
+  """userId"""
+  userId: String!
+
+  """status"""
+  status: Int!
+}
+
+input UuidOperationInput {
+  emailId: String!
+  clientMutationId: String
+}
+
+type UuidOperationPayload {
+  uuidResponse: UserIdResponseType
+  clientMutationId: String
+}
+
+"""VehicalEntry detail"""
+type VehicleEntry {
+  """vehicleId"""
+  vehicleId: String!
+
+  """year"""
+  year: String!
+
+  """make"""
+  make: String!
+
+  """model"""
+  model: String!
+
+  """submodel"""
+  submodel: String!
+
+  """engine"""
+  engine: String!
+
+  """current"""
+  current: Boolean!
+
+  """bodyType"""
+  bodyType: String!
+
+  """bodyDoors"""
+  bodyDoors: String!
+
+  """driveType"""
+  driveType: String!
+
+  """aspirationname"""
+  aspirationname: String!
+
+  """bedlength"""
+  bedlength: String!
+
+  """bedtypename"""
+  bedtypename: String!
+
+  """bodynumdoors"""
+  bodynumdoors: String!
+
+  """bodytypename"""
+  bodytypename: String!
+
+  """brakeabsname"""
+  brakeabsname: String!
+
+  """brakesystemname"""
+  brakesystemname: String!
+
+  """cylinderheadtypename"""
+  cylinderheadtypename: String!
+
+  """drivetypename"""
+  drivetypename: String!
+
+  """enginedesignationname"""
+  enginedesignationname: String!
+
+  """enginevinname"""
+  enginevinname: String!
+
+  """engineversion"""
+  engineversion: String!
+
+  """frontbraketypename"""
+  frontbraketypename: String!
+
+  """frontspringtypename"""
+  frontspringtypename: String!
+
+  """fueldeliverysubtypename"""
+  fueldeliverysubtypename: String!
+
+  """fueldeliverytypename"""
+  fueldeliverytypename: String!
+
+  """fuelsystemcontroltypename"""
+  fuelsystemcontroltypename: String!
+
+  """fuelsystemdesignname"""
+  fuelsystemdesignname: String!
+
+  """fueltypename"""
+  fueltypename: String!
+
+  """ignitionsystemtypename"""
+  ignitionsystemtypename: String!
+
+  """mfrbodycodename"""
+  mfrbodycodename: String!
+
+  """rearbraketypename"""
+  rearbraketypename: String!
+
+  """rearspringtypename"""
+  rearspringtypename: String!
+
+  """regionname"""
+  regionname: String!
+
+  """steeringsystemname"""
+  steeringsystemname: String!
+
+  """steeringtypename"""
+  steeringtypename: String!
+
+  """transmissioncontroltypename"""
+  transmissioncontroltypename: String!
+
+  """transmissionmfrcode"""
+  transmissionmfrcode: String!
+
+  """transmissionmfrname"""
+  transmissionmfrname: String!
+
+  """transmissionnumspeeds"""
+  transmissionnumspeeds: String!
+
+  """transmissionrange"""
+  transmissionrange: String!
+
+  """transmissiontypename"""
+  transmissiontypename: String!
+
+  """valvesperengine"""
+  valvesperengine: String!
+
+  """wheelbase"""
+  wheelbase: String!
+
+  """skuid"""
+  skuid: String!
+
+  """partnumber"""
+  partnumber: String!
+
+  """location"""
+  location: String!
+}
+
+"""vehicleRecordDetail"""
+type vehicleRecordType implements Node {
+  """The ID of an object"""
+  id: ID!
+
+  """userid"""
+  userid: String!
+
+  """vehicle"""
+  vehicle: [VehicleEntry!]!
+}
+
+""" VehicleType detail"""
+type VehicleType {
+  """partnumber"""
+  partnumber: String!
+
+  """aspirationname"""
+  aspirationname: String!
+
+  """bedlength"""
+  bedlength: String!
+
+  """bedtypename"""
+  bedtypename: String!
+
+  """bodynumdoors"""
+  bodynumdoors: String!
+
+  """bodytypename"""
+  bodytypename: String!
+
+  """brakeabsname"""
+  brakeabsname: String!
+
+  """brakesystemname"""
+  brakesystemname: String!
+
+  """cylinderheadtypename"""
+  cylinderheadtypename: String!
+
+  """drivetypename"""
+  drivetypename: String!
+
+  """enginedesignationname"""
+  enginedesignationname: String!
+
+  """engineversion"""
+  engineversion: String!
+
+  """enginevinname"""
+  enginevinname: String!
+
+  """frontbraketypename"""
+  frontbraketypename: String!
+
+  """frontspringtypename"""
+  frontspringtypename: String!
+
+  """fueldeliverysubtypename"""
+  fueldeliverysubtypename: String!
+
+  """fueldeliverytypename"""
+  fueldeliverytypename: String!
+
+  """fuelsystemcontroltypename"""
+  fuelsystemcontroltypename: String!
+
+  """fuelsystemdesignname"""
+  fuelsystemdesignname: String!
+
+  """fueltypename"""
+  fueltypename: String!
+
+  """ignitionsystemtypename"""
+  ignitionsystemtypename: String!
+
+  """makename"""
+  makename: String!
+
+  """mfrbodycodename"""
+  mfrbodycodename: String!
+
+  """modelname"""
+  modelname: String!
+
+  """rearbraketypename"""
+  rearbraketypename: String!
+
+  """rearspringtypename"""
+  rearspringtypename: String!
+
+  """regionname"""
+  regionname: String!
+
+  """steeringsystemname"""
+  steeringsystemname: String!
+
+  """steeringtypename"""
+  steeringtypename: String!
+
+  """submodelname"""
+  submodelname: String!
+
+  """transmissioncontroltypename"""
+  transmissioncontroltypename: String!
+
+  """transmissionmfrcode"""
+  transmissionmfrcode: String!
+
+  """transmissionmfrname"""
+  transmissionmfrname: String!
+
+  """transmissionnumspeeds"""
+  transmissionnumspeeds: String!
+
+  """transmissionrange"""
+  transmissionrange: String!
+
+  """transmissiontypename"""
+  transmissiontypename: String!
+
+  """valvesperengine"""
+  valvesperengine: String!
+
+  """wheelbase"""
+  wheelbase: String!
+
+  """yearid"""
+  yearid: String!
+
+  """engine"""
+  engine: String!
+
+  """fitStatus"""
+  fitStatus: Boolean!
+}
+
+"""Card Details"""
+type Wallet implements Node {
+  """The ID of an object"""
+  id: ID!
+
+  """customerUUID"""
+  customerUUID: String!
+
+  """paymentGroupList"""
+  paymentGroupList: [PaymentGroup!]!
+
+  """responseCode"""
+  responseCode: Int!
+
+  """responseText"""
+  responseText: String!
+}
+
+input walletOperationInput {
+  cardOperation: String!
+  walletEmailId: String!
+  walletCustomerUUID: String!
+  paymentUUID: String!
+  lastFourDigitOfCard: String!
+  cardType: String!
+  expiryDateMonth: String!
+  expiryDateYear: String!
+  lastUsed: String!
+  isDefaultCard: String!
+  creditCardNumber: String!
+  cvvWall: String!
+  cardFirstName: String!
+  cardLastName: String!
+  billingAddressUUID: String!
+  clientMutationId: String
+}
+
+type walletOperationPayload {
+  wallet: Wallet
+  clientMutationId: String
+}
+
+"""Zipcodes detail"""
+type Zipcodes {
+  """zipcode"""
+  zipcode: String!
+
+  """zipcode_type"""
+  zipcode_type: String!
+
+  """default_city"""
+  default_city: String!
+
+  """county_fips"""
+  county_fips: String!
+
+  """county_name"""
+  county_name: String!
+
+  """state_abbreviation"""
+  state_abbreviation: String!
+
+  """state"""
+  state: String!
+
+  """latitude"""
+  latitude: String!
+
+  """longitude"""
+  longitude: String!
+
+  """precision"""
+  precision: String!
+}
+
