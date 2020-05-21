@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import Make from './components/Make';
-import ListPage from './components/ListPage';
+// import ListPage from './components/ListPage';
 
 
 render(

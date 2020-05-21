@@ -1,64 +1,48 @@
 import React from 'react'
-import {
-  createFragmentContainer,
-  graphql
-} from 'react-relay'
 
-// const ListPageQuery = graphql`
-//   query ListQuery {
-//     makes {
-//       ...ListPage_makes
-//     }
-//   }
-// `;
+import Sample from './SampleFeaturedCategory';
+import { QueryRenderer, graphql } from "react-relay";
+import environment from "../createRelayEnvironment";
 
 class ListPage extends React.Component {
 
   render() {
-    console.log('.........................data dep', this.props.optionsArray);
+    console.log(
+      ".........................data dep",
+      this.props.store
+    );
     const {
       optionsArray,
     } = this.props;
     return (
       <div>
         <ul>
-          {optionsArray.map((option, index) =>
-              <li key={index}>
-                {option.value}
-              </li>
-            )}
+          {optionsArray.map((option, index) => (
+            <li key={index}>{option.value}</li>
+          ))}
+          <li>
+            <QueryRenderer
+              environment={environment}
+              query={graphql`
+                query ListPage_FeaturedCategory_Query {
+                  store {
+                    ...SampleFeaturedCategory_store
+                  }
+                }
+              `}
+              render={({ error, props }) => {
+                if (error) {
+                  return <div>{error.message}</div>;
+                } else if (props) {
+                  return <Sample store={props.store} />;
+                }
+                return <div>Loading</div>;
+              }}
+            />
+          </li>
         </ul>
       </div>
-    )
+    );
   }
 }
 export default ListPage
-// export default createFragmentContainer(
-//   ListPage,
-//   graphql`
-//     fragment ListPage_makes on ListPage {
-//        key
-//        value
-//     }
-//   `
-// );
-
-// export default createFragmentContainer(ListPage, {
-//   makes: graphql`
-//     fragment ListPage_makes on Make @relay(pattern: true) {
-//       key
-//       value
-//     }
-//   `,
-// });
-
-// export default createFragmentContainer(ListPage, {
-//   store: graphql`
-//     fragment ListPage_store on Store {
-//       makes(year: $year) {
-//         key
-//         value
-//       }
-//     }
-//   `,
-// });

@@ -44,11 +44,11 @@
   },
   "dependencies": {
     "graphql": "^15.0.0",
-    "graphql-relay": "^0.6.0",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-relay": "^1.1.0",
-    "react-router-dom": "^4.1.1"
+    "react-router-dom": "^4.1.1",
+    "webpack-cli": "^3.3.11"
   },
   "scripts": {
     "start": "node scripts/start.js",
