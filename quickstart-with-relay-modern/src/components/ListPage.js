@@ -20,6 +20,8 @@ class ListPage extends React.Component {
           {optionsArray.map((option, index) => (
             <li key={index}>{option.value}</li>
           ))}
+        </ul>
+        <ul>
           <li>
             <QueryRenderer
               environment={environment}

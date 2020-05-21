@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
 import { createFragmentContainer, graphql } from "react-relay";
+import "../css/Sample.css";
 
 class SampleFeaturedCategory extends Component {
   render() {
     return (
-      <div>
+      <div className="genearteDiv">
         <h1>Displayed List using fragment container</h1>
-        <ul style={{ display: "flex" }}>
+        <ul className="featureList">
           {this.props.store.featuredCategory.categoryList.map(
             (option, index) => (
               <li key={index}>
                 {option.category}
-                <img src={option.largeImage} />
+                <img className="featureImg" src={option.largeImage} />
               </li>
             )
           )}
