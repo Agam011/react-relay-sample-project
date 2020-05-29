@@ -10,9 +10,11 @@ class SampleFeaturedCategory extends Component {
         <ul className="featureList">
           {this.props.store.featuredCategory.categoryList.map(
             (option, index) => (
-              <li key={index}>
+              <li className="displayListForm" key={index}>
                 {option.category}
-                <img className="featureImg" src={option.largeImage} />
+                <div>
+                  <img className="featureImg" src={option.largeImage} />
+                </div>
               </li>
             )
           )}

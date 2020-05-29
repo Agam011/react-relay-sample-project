@@ -3,20 +3,17 @@ import React from 'react'
 import Sample from './SampleFeaturedCategory';
 import { QueryRenderer, graphql } from "react-relay";
 import environment from "../createRelayEnvironment";
+import '../css/listPage.css';
 
 class ListPage extends React.Component {
 
   render() {
-    console.log(
-      ".........................data dep",
-      this.props.store
-    );
     const {
       optionsArray,
     } = this.props;
     return (
       <div>
-        <ul>
+        <ul className="makesList">
           {optionsArray.map((option, index) => (
             <li key={index}>{option.value}</li>
           ))}
