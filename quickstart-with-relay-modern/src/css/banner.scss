@@ -1,0 +1,90 @@
+@import './variables.scss';
+.banner-wrapper {
+  height: 370px;
+  background-size: cover;
+  .banner-text {
+    position: absolute;
+    padding-top: 50px;
+    p {
+      font-family: $font;
+      &:first-child {
+        font-size: 60px;
+        font-weight: 300;
+      }
+      &:nth-child(2) {
+        font-size: 24px;
+      }
+    }
+  }
+}
+.homeslider {
+  &.slick-slider {
+    .slick-slide {
+      img {
+        width: auto;
+        margin: 0 auto;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .slick-arrow {
+      background-color: transparent;
+      position: absolute;
+      top: 50%;
+      transform: translate(0%, -50%);
+      z-index: 1;
+      background-repeat: no-repeat;
+      border: 0;
+      text-align: center;
+      width: 20px;
+      height: 20px;
+      background-position: center;
+      color: transparent;
+      background-size: 100% 100%;
+      opacity: 0.5;
+      cursor: pointer;
+
+      &.slick-prev {
+        left: 75px;
+        background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'><path d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/></svg>");
+      }
+      &.slick-next {
+        right: 75px;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+      }
+      &:hover,
+      &:focus {
+        opacity: 0.9;
+      }
+    }
+  }
+}
+@media screen and (max-width: 991px) {
+  .homeslider {
+    &.slick-slider {
+      .slick-slide {
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .banner-wrapper{
+    height: 320px !important;
+    .banner-text{
+      p{
+        &:first-child{
+          font-size: 50px !important;
+        }
+        &:nth-child(2) {
+          font-size: 22px !important;
+      }
+      }
+    }
+    .container,.slick-slider,.slick-list{
+      height: 100%;
+
+    }
+  }
+}

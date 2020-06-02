@@ -3,11 +3,8 @@ import { render } from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import Make from './components/Make';
-// import ListPage from './components/ListPage';
+// import Home from './components/PPM/Home';
 
 
-render(
-  <Make />
-  , document.getElementById('root')
-);
+render(<Make />, document.getElementById("root"));
 registerServiceWorker();

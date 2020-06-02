@@ -1,6 +1,7 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from 'react'
 import { createFragmentContainer, graphql } from "react-relay";
-import "../css/Sample.css";
+import "../css/Sample.scss";
 
 class SampleFeaturedCategory extends Component {
   render() {
@@ -15,6 +16,18 @@ class SampleFeaturedCategory extends Component {
                 <div>
                   <img className="featureImg" src={option.largeImage} />
                 </div>
+                {/* <ul>
+                  <li>
+                    <h2>SubcategoryList</h2>{" "}
+                    {option.subCategoryList.map((list) => (
+                      <div>
+                        <h4>subcategoryId : ({list.subcategoryId})</h4>
+                        <p>{list.subcategory}</p>
+                        <img className="featureImg" src={list.smallImage} />
+                      </div>
+                    ))}
+                  </li>
+                </ul> */}
               </li>
             )
           )}
