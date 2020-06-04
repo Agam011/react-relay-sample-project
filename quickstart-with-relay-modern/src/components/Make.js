@@ -40,17 +40,14 @@ class Home extends Component {
     this.setState({ year: year.value.toString() });
   };
   handleOnchange = (event) => {
-    console.log('.......................target value covered', event.value);
     
     this.setState({ make: event.value});
   };
   ModalValue = (event) => {
-    console.log('.......................modal value covered', event.value);
 
     this.setState({ model: event.value });
   };
   subModalValue = (event) => {
-    console.log('.......................submodel value covered', event.value);
 
     this.setState({ submodel: event.value });
   };

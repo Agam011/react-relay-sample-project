@@ -17,7 +17,6 @@ const ModalQuery = graphql`
 class Modal extends Component {
   render() {
     const { year, make, model } = this.props;
-    console.log('.........modal', model);
     
     return (
       <div>
