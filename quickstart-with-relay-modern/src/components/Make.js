@@ -7,6 +7,8 @@ import environment from '../createRelayEnvironment'
 import ListPage from './ListPage'
 import Dropdown from "react-dropdown";
 import GetAllCategory from './GetAllCategory';
+import Modal from './Modal';
+import SubModal from './SubModal'
 import "react-dropdown/style.css";
 
 const MakeQuery = graphql`
@@ -28,22 +30,41 @@ class Home extends Component {
       makes: [],
       year: thisYear.toString(),
       thisYear: thisYear,
+      make: '',
+      model:'',
+      submodel:'',
+      engine:'',
     };
   }
   _onSelect = (year) => {
     this.setState({ year: year.value.toString() });
   };
+  handleOnchange = (event) => {
+    console.log('.......................target value covered', event.value);
+    
+    this.setState({ make: event.value});
+  };
+  ModalValue = (event) => {
+    console.log('.......................modal value covered', event.value);
 
+    this.setState({ model: event.value });
+  };
+  subModalValue = (event) => {
+    console.log('.......................submodel value covered', event.value);
+
+    this.setState({ submodel: event.value });
+  };
   render() {
-    const { year, thisYear } = this.state;
+    const { year, thisYear, make, model, submodel, engine } = this.state;
     const minOffset = 0;
     const maxOffset = 60;
-     const options = [];
+    const options = [];
 
-     for (let i = minOffset; i <= maxOffset; i++) {
-       const years = thisYear - i;
-       options.push(years).toString();
-     }
+    for (let i = minOffset; i <= maxOffset; i++) {
+      const years = thisYear - i;
+      options.push(years).toString();
+    }
+
     return (
       <div>
         <div style={{ backgroundColor: "#87CEFA" }}>
@@ -67,14 +88,21 @@ class Home extends Component {
                 return <div>{error.message}</div>;
               } else if (props) {
                 return (
-                  <ListPage year={year} optionsArray={props.store.makes} />
+                  <ListPage
+                    year={year}
+                    make={this.state.make}
+                    optionsArray={props.store.makes}
+                    handleOnchange={this.handleOnchange}
+                    messageID="MakeMessage"
+                  />
                 );
               }
               return <div>Loading</div>;
             }}
           />
+          {year ? <Modal year={year} make={make} model={this.state.model} ModalValue={this.ModalValue}/> : null}
+          {make ? <SubModal year={year} make={make} model={model} submodel={submodel} subModalValue={this.subModalValue}/> : null}
         </div>
-
         <GetAllCategory />
       </div>
     );
