@@ -9,6 +9,7 @@ import Dropdown from "react-dropdown";
 import GetAllCategory from './GetAllCategory';
 import Modal from './Modal';
 import SubModal from './SubModal'
+import Engine from './Engine';
 import "react-dropdown/style.css";
 
 const MakeQuery = graphql`
@@ -30,26 +31,44 @@ class Home extends Component {
       makes: [],
       year: thisYear.toString(),
       thisYear: thisYear,
-      make: '',
-      model:'',
-      submodel:'',
-      engine:'',
+      make: "",
+      model: "",
+      submodel: "",
+      engine: "",
     };
   }
   _onSelect = (year) => {
-    this.setState({ year: year.value.toString() });
+    this.setState({
+      year: year.value.toString(),
+      make: "",
+      model: "",
+      submodel: "",
+      engine: "",
+    });
   };
   handleOnchange = (event) => {
-    
-    this.setState({ make: event.value});
+    this.setState({
+      make: event.value,
+      model: "",
+      submodel: "",
+      engine: "",
+    });
   };
   ModalValue = (event) => {
-
-    this.setState({ model: event.value });
+    this.setState({
+      model: event.value,
+      submodel: "",
+      engine: "",
+    });
   };
   subModalValue = (event) => {
-
-    this.setState({ submodel: event.value });
+    this.setState({
+      submodel: event.value,
+      engine: "",
+    });
+  };
+  engineValue = (event) => {
+    this.setState({ engine: event.value });
   };
   render() {
     const { year, thisYear, make, model, submodel, engine } = this.state;
@@ -97,8 +116,33 @@ class Home extends Component {
               return <div>Loading</div>;
             }}
           />
-          {year ? <Modal year={year} make={make} model={this.state.model} ModalValue={this.ModalValue}/> : null}
-          {make ? <SubModal year={year} make={make} model={model} submodel={submodel} subModalValue={this.subModalValue}/> : null}
+          {year ? (
+            <Modal
+              year={year}
+              make={make}
+              model={this.state.model}
+              ModalValue={this.ModalValue}
+            />
+          ) : null}
+          {year ? (
+            <SubModal
+              year={year}
+              make={make}
+              model={model}
+              submodel={submodel}
+              subModalValue={this.subModalValue}
+            />
+          ) : null}
+          {year ? (
+            <Engine
+              year={year}
+              make={make}
+              model={model}
+              submodel={submodel}
+              engine={engine}
+              engineValue={this.engineValue}
+            />
+          ) : null}
         </div>
         <GetAllCategory />
       </div>
